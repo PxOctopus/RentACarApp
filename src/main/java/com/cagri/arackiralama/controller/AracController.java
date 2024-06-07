@@ -19,8 +19,8 @@ public class AracController {
  private final AracService aracService;
 
  @PostMapping(SAVE)
- public ResponseEntity<Arac> save(@RequestBody AracSaveRequestDto arac) {
-     return ResponseEntity.ok(aracService.save(arac));
+ public ResponseEntity<Arac> save(@RequestBody AracSaveRequestDto dto) {
+     return ResponseEntity.ok(aracService.save(dto));
  }
 
 }

@@ -19,9 +19,6 @@ public class Bayi {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // id icin otomatik artan
     Long id;
     String ad;
-    String no;
     String adres;
-    @OneToMany
-    @JoinColumn(name = "bayi_id")
-    List<Arac> aracListesi;
+
 }

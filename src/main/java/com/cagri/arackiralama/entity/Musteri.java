@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data // get,set toString
 @AllArgsConstructor // parametreli constructorlarin tumu
 @NoArgsConstructor // default constructor

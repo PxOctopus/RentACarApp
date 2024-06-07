@@ -18,13 +18,16 @@ public class Kiralama {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // id icin otomatik artan
     Long id;
-    @OneToOne
-    Musteri musteri;
-    @OneToOne
-    Arac arac;
-    @OneToOne
-    Bayi bayi;
+
     LocalDateTime tarih = LocalDateTime.now();
     LocalDateTime teslimTarihi; // en fazla 5 gun kiralanabilir olacak nasıl yazarım?
+
+    @OneToOne
+    Musteri musteri;
+
+    @OneToOne
+    Arac arac;
+
+
 
 }

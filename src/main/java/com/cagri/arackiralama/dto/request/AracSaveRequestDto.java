@@ -1,7 +1,9 @@
 package com.cagri.arackiralama.dto.request;
 
+import com.cagri.arackiralama.entity.Bayi;
 import com.cagri.arackiralama.utility.enums.AracDurum;
 import com.cagri.arackiralama.utility.enums.AracRenk;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +18,6 @@ public class AracSaveRequestDto {
     String model;
     String plaka;
     Double km;
-    AracDurum durum = AracDurum.MUSAIT;
     AracRenk renk;
+    Bayi bayi;
 }
