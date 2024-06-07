@@ -11,5 +11,5 @@ public interface KiralamaMapper {
     KiralamaMapper INSTANCE = Mappers.getMapper(KiralamaMapper.class);
 
     Kiralama fromKiralamaSaveDto(KiralamaSaveRequestDto dto);
-    
+
 }

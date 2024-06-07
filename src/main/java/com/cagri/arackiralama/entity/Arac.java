@@ -23,6 +23,8 @@ public class Arac {
     String plaka;
     Double km;
     @Builder.Default
+    @Enumerated(EnumType.STRING)
     AracDurum durum = AracDurum.MUSAIT;
+    @Enumerated(EnumType.STRING)
     AracRenk renk;
 }

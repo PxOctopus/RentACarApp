@@ -22,5 +22,6 @@ public class Bayi {
     String no;
     String adres;
     @OneToMany
+    @JoinColumn(name = "bayi_id")
     List<Arac> aracListesi;
 }

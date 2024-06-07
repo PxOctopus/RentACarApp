@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data // get,set toString
 @AllArgsConstructor // parametreli constructorlarin tumu
 @NoArgsConstructor // default constructor
@@ -20,5 +22,9 @@ public class Kiralama {
     Musteri musteri;
     @OneToOne
     Arac arac;
+    @OneToOne
+    Bayi bayi;
+    LocalDateTime tarih = LocalDateTime.now();
+    LocalDateTime teslimTarihi; // en fazla 5 gun kiralanabilir olacak nasıl yazarım?
 
 }
