@@ -25,9 +25,9 @@ public class Kiralama {
     @OneToOne
     Musteri musteri;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "arac_id")
     Arac arac;
-
 
 
 }

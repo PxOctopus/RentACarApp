@@ -1,7 +1,9 @@
 package com.cagri.arackiralama.controller;
 
 import com.cagri.arackiralama.dto.request.AracSaveRequestDto;
+import com.cagri.arackiralama.dto.request.BayiSaveRequestDto;
 import com.cagri.arackiralama.entity.Arac;
+import com.cagri.arackiralama.entity.Bayi;
 import com.cagri.arackiralama.service.AracService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

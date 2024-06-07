@@ -24,8 +24,5 @@ private final BayiService bayiService;
     public ResponseEntity<Bayi> save(@RequestBody BayiSaveRequestDto dto) {
         return ResponseEntity.ok(bayiService.save(dto));
     }
-    @PostMapping(ADDCAR)
-    public ResponseEntity<Bayi> addCar(@RequestBody BayiSaveRequestDto dto, @RequestBody AracSaveRequestDto adto) {
-        return ResponseEntity.ok(bayiService.addCarToBayi(dto, adto));
-    }
+
 }

@@ -13,5 +13,4 @@ public interface BayiMapper {
 
     Bayi fromBayiSaveDto(BayiSaveRequestDto dto);
 
-    Bayi fromBayiSaveCarDto(BayiSaveRequestDto bayiSaveRequestDto, AracSaveRequestDto aracSaveRequestDto);
 }

@@ -17,7 +17,5 @@ public class BayiService {
         return repository.save(BayiMapper.INSTANCE.fromBayiSaveDto(dto));
     }
 
-    public Bayi addCarToBayi(BayiSaveRequestDto bayiSaveRequestDto, AracSaveRequestDto aracSaveRequestDto){
-        return repository.save(BayiMapper.INSTANCE.fromBayiSaveCarDto(bayiSaveRequestDto, aracSaveRequestDto));
-    }
+
 }

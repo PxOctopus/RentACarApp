@@ -29,6 +29,7 @@ public class Arac {
     AracRenk renk;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "bayi_id")
     Bayi bayi;
 
 }
