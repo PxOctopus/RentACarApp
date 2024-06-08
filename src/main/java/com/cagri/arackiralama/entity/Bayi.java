@@ -20,7 +20,7 @@ public class Bayi {
     Long id;
     String ad;
     String adres;
-    @OneToMany(mappedBy = "bayi", cascade = CascadeType.ALL)
-    List<Arac> aracListesi;
+    String telefon;
+
 
 }

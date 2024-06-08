@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data // get,set toString
@@ -18,16 +19,19 @@ public class Kiralama {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // id icin otomatik artan
     Long id;
+    LocalDate tarih = LocalDate.now();
+    LocalDate teslimTarihi;
+    Double odemeTutari;
 
-    LocalDateTime tarih = LocalDateTime.now();
-    LocalDateTime teslimTarihi; // en fazla 5 gun kiralanabilir olacak nasıl yazarım?
-
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "musteri_id")
     Musteri musteri;
 
     @ManyToOne
     @JoinColumn(name = "arac_id")
     Arac arac;
+
+
 
 
 }

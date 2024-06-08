@@ -12,5 +12,5 @@ public class RestApis {
     public static final String DELETE = "/delete";
     public static final String GETALL = "/get-all";
     public static final String GETBYID = "/get-by-id";
-
+    public static final String ADD = "/add";
 }

@@ -22,13 +22,15 @@ public class Arac {
     String model;
     String plaka;
     Double km;
+    Double kiralamaBedeli;
+
     @Enumerated(EnumType.STRING)
     @Builder.Default
     AracDurum durum = AracDurum.MUSAIT;
     @Enumerated(EnumType.STRING)
     AracRenk renk;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "bayi_id")
     Bayi bayi;
 

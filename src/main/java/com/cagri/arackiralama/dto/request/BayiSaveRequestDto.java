@@ -17,6 +17,6 @@ import java.util.List;
 public class BayiSaveRequestDto {
     String ad;
     String adres;
-    List<Arac> aracListesi;
+    String telefon;
 
 }

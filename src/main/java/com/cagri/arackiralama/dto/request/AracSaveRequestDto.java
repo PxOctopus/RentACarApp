@@ -18,6 +18,8 @@ public class AracSaveRequestDto {
     String model;
     String plaka;
     Double km;
+    Double kiralamaBedeli;
     AracRenk renk;
+    AracDurum durum = AracDurum.MUSAIT;
     Bayi bayi;
 }

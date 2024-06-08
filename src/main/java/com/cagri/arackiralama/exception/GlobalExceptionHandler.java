@@ -33,10 +33,10 @@ public class GlobalExceptionHandler {
      * ilgili sınıf hata fırlatırsa onu yakalar.
      *
      */
-    @ExceptionHandler(HastaTakipException.class)
+    @ExceptionHandler(AracKiralamaException.class)
     @ResponseBody
-    public ResponseEntity<ErrorMessage> handlerSatisException(HastaTakipException hastaTakipException){
-        return  new ResponseEntity<>(createMessage(hastaTakipException.getErrorType(), hastaTakipException), hastaTakipException.getErrorType().getHttpStatus());
+    public ResponseEntity<ErrorMessage> handlerSatisException(AracKiralamaException aracKiralamaException){
+        return  new ResponseEntity<>(createMessage(aracKiralamaException.getErrorType(), aracKiralamaException), aracKiralamaException.getErrorType().getHttpStatus());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

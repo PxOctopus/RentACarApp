@@ -9,9 +9,9 @@ import lombok.Getter;
  * constructor una (super) hata ile ilgili mesajınızı iletiyorsunuz.
  */
 @Getter
-public class HastaTakipException extends RuntimeException{
+public class AracKiralamaException extends RuntimeException{
      private ErrorType errorType;
-    public HastaTakipException(ErrorType errorType){
+    public AracKiralamaException(ErrorType errorType){
         super(errorType.getMessage());
         this.errorType = errorType;
     }
