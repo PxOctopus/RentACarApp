@@ -10,6 +10,7 @@ import com.cagri.arackiralama.repository.KiralamaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import static com.cagri.arackiralama.utility.enums.AracDurum.KIRADA;
@@ -19,20 +20,21 @@ import static com.cagri.arackiralama.utility.enums.AracDurum.MUSAIT;
 @RequiredArgsConstructor
 public class KiralamaService {
     private final KiralamaRepository repository;
+    private final MusteriService musteriService;
 
     public Kiralama save(KiralamaSaveRequestDto dto) {
+        Long musteriId = dto.getMusteri().getId();
+        if (Objects.isNull(musteriId)) {
+           musteriService.saveAndGetId(dto.getMusteri().getAd(),
+                    dto.getMusteri().getSoyad(),
+                    dto.getMusteri().getTcKimlikNo(),
+                    dto.getMusteri().getAdres(),
+                    dto.getMusteri().getTelefon());
 
-        Arac arac = repository.findById(dto.getArac().getId())
-                .orElseThrow(() -> new IllegalArgumentException("Arac bulunamadi")).getArac();
-
-        if (arac.getDurum() == MUSAIT) {
-            Kiralama kiralama = KiralamaMapper.INSTANCE.fromKiralamaSaveDto(dto);
-            kiralama.setArac(arac);
-            kiralama.setMusteri(dto.getMusteri());
-            arac.setDurum(KIRADA);
-            return repository.save(kiralama);
+            return repository.save(KiralamaMapper.INSTANCE.fromKiralamaSaveDto(dto));
         } else {
-            throw new AracKiralamaException(ErrorType.BAD_REQUEST_ERROR);
+            throw new AracKiralamaException(ErrorType.CUSTOMER_INVALID_PARAMETER_ERROR);
         }
     }
 }
+

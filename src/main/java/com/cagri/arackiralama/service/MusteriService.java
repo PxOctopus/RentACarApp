@@ -11,8 +11,14 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class MusteriService {
-private final MusteriRepository repository;
+    private final MusteriRepository repository;
+
     public Musteri save(MusteriSaveRequestDto dto) {
         return repository.save(MusteriMapper.INSTANCE.fromMusteriSaveDto(dto));
+    }
+
+    public Long saveAndGetId(String ad, String soyad, String tcKimlikNo, String adres, String telefon) {
+        return MusteriMapper.INSTANCE.fromMusteriSaveDto());
+
     }
 }
