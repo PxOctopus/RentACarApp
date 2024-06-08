@@ -18,7 +18,16 @@ public class MusteriService {
     }
 
     public Long saveAndGetId(String ad, String soyad, String tcKimlikNo, String adres, String telefon) {
-        return MusteriMapper.INSTANCE.fromMusteriSaveDto());
+        MusteriSaveRequestDto dto = new MusteriSaveRequestDto();
+        dto.setAd(ad);
+        dto.setSoyad(soyad);
+        dto.setTcKimlikNo(tcKimlikNo);
+        dto.setAdres(adres);
+        dto.setTelefon(telefon);
 
+        Musteri musteri = MusteriMapper.INSTANCE.fromMusteriSaveDto(dto);
+        musteri = repository.save(musteri);
+
+        return musteri.getId();
     }
 }

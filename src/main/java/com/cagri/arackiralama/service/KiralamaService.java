@@ -21,20 +21,23 @@ import static com.cagri.arackiralama.utility.enums.AracDurum.MUSAIT;
 public class KiralamaService {
     private final KiralamaRepository repository;
     private final MusteriService musteriService;
+    private final AracService aracService;
 
     public Kiralama save(KiralamaSaveRequestDto dto) {
         Long musteriId = dto.getMusteri().getId();
         if (Objects.isNull(musteriId)) {
-           musteriService.saveAndGetId(dto.getMusteri().getAd(),
+            musteriId = musteriService.saveAndGetId(dto.getMusteri().getAd(),
                     dto.getMusteri().getSoyad(),
                     dto.getMusteri().getTcKimlikNo(),
                     dto.getMusteri().getAdres(),
                     dto.getMusteri().getTelefon());
 
-            return repository.save(KiralamaMapper.INSTANCE.fromKiralamaSaveDto(dto));
-        } else {
-            throw new AracKiralamaException(ErrorType.CUSTOMER_INVALID_PARAMETER_ERROR);
         }
+        if (!aracService.existById(dto.getArac().getId())) {
+            throw new AracKiralamaException(ErrorType.VEHICLE_NOT_FOUND_ID_ERROR);
+
+        }
+        return repository.save(KiralamaMapper.INSTANCE.fromKiralamaSaveDto(dto));
     }
 }
 

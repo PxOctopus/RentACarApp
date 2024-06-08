@@ -19,4 +19,7 @@ public class AracService {
         return repository.save(AracMapper.INSTANCE.fromAracSaveDto(dto));
     }
 
+    public boolean existById(Long id) {
+        return repository.existsById(id);
+    }
 }
